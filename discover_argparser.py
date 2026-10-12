@@ -1,0 +1,157 @@
+
+
+import argparse
+
+discover_parser = argparse.ArgumentParser(add_help=False)
+
+discover_parser.add_argument("--json_args", help="json file of saved model configuration to load", type=str, default=None)
+
+# Arguments defining the architecture
+discover_parser.add_argument("--architecture", help="model type (MLP, SRN, GRU, LSTM, Transformer, TPR)", type=str, default=None)
+discover_parser.add_argument("--hidden_size", help="hidden size", type=int, default=120)
+discover_parser.add_argument("--emb_size", help="embedding size", type=int, default=10)
+discover_parser.add_argument("--role_emb_size", help="role embedding size", type=int, default=None)
+discover_parser.add_argument("--role_scheme", help="role scheme", type=str, default=None)
+discover_parser.add_argument("--n_layers", help="number of layers", type=int, default=1)
+discover_parser.add_argument("--max_length", help="maximum sequence length", type=int, default=10)
+discover_parser.add_argument("--nonlinearity", help="nonlinearity to apply between MLP layers", type=str, default="ReLU")
+discover_parser.add_argument("--n_head", help="number of attention heads", type=int, default=4)
+discover_parser.add_argument("--dim_feedforward", help="size of a Transformer's feedforward layer", type=int, default=None)
+discover_parser.add_argument("--has_linear_layer", help="in a TPR encoder, whether there is a linear layer at the end", action='store_true')
+discover_parser.add_argument("--return_bindings", help="whether the TPR encoder should return the individual filler-role bindings, as well as the sum of the filler-role bindings", action='store_true')
+discover_parser.add_argument("--no_train_encoder", help="don't train the encoder; just stick with its randomly-initialized values", action='store_true')
+discover_parser.add_argument("--tree_transformer", help="the Transformer is specifically a tree Transformer", action='store_true')
+discover_parser.add_argument("--max_based_parsing", help="use a max-based parsing algorithm (default is min-based)", action='store_true')
+discover_parser.add_argument("--merge_left_parsing", help="use a merge-left-based parsing algorithm (default is merge-right)", action='store_true')
+
+discover_parser.add_argument("--decoder_architecture", help="decoder model type, if different from encoder", type=str, default=None)
+discover_parser.add_argument("--decoder_hidden_size", help="decoder hidden size, if different from encoder", type=int, default=None)
+discover_parser.add_argument("--decoder_emb_size", help="decoder embedding size, if different from encoder", type=int, default=None)
+discover_parser.add_argument("--decoder_role_emb_size", help="decoder role embedding size, if different from encoder", type=int, default=None)
+discover_parser.add_argument("--decoder_role_scheme", help="role scheme for the decoder, if different from the encoder", type=str, default=None)
+discover_parser.add_argument("--decoder_n_layers", help="number of layers in the decoder, if different from the encoder", type=int, default=None)
+discover_parser.add_argument("--decoder_max_length", help="maximum sequence length for the decoder, if different from the encoder", type=int, default=None)
+discover_parser.add_argument("--decoder_nonlinearity", help="nonlinearity to apply between MLP decoder layers, if different from the encoder", type=str, default=None)
+discover_parser.add_argument("--decoder_n_head", help="number of attention heads for the decoder, if different from the encoder", type=int, default=None)
+discover_parser.add_argument("--decoder_dim_feedforward", help="size of a decoder Transformer's feedforward layer, if different from the encoder", type=int, default=None)
+discover_parser.add_argument("--bottleneck", help="have the Transformer decoder only attend to the first element of the input", action='store_true')
+discover_parser.add_argument("--decoder_has_linear_layer", help="in a TPR decoder, whether there is a linear layer at the start", action='store_true')
+discover_parser.add_argument("--encoding_is_seq", help="whether the encoding used by the model is a sequence of vectors (as opposed to a single vector). E.g., Transformers use a sequence of vectors; an RNN without attention uses a single vector", action='store_true')
+discover_parser.add_argument("--no_train_decoder", help="don't train the decoder; just stick with its randomly-initialized values", action='store_true')
+discover_parser.add_argument("--decoder_tree_transformer", help="the Transformer decoder is specifically a tree Transformer", action='store_true')
+discover_parser.add_argument("--decoder_not_tree_transformer", help="the Transformer decoder is specifically not a tree Transformer (even if the encoder is one)", action='store_true')
+discover_parser.add_argument("--decoder_max_based_parsing", help="use a max-based parsing algorithm in the decoder (default is to be the same as the encoder)", action='store_true')
+discover_parser.add_argument("--decoder_merge_left_parsing", help="use a merge-left-based parsing algorithm in the decoder (default is to be the same as the encoder)", action='store_true')
+discover_parser.add_argument("--decoder_min_based_parsing", help="use a min-based parsing algorithm in the decoder (default is to be the same as the encoder)", action='store_true')
+discover_parser.add_argument("--decoder_merge_right_parsing", help="use a merge-right-based parsing algorithm in the decoder (default is to be the same as the encoder)", action='store_true')
+
+discover_parser.add_argument("--headers", help="input files have headers", action='store_true')
+
+# DISCOVER arguments
+discover_parser.add_argument("--discover_hidden_size", help="DISCOVER hidden size", type=int, default=60)
+discover_parser.add_argument("--discover_emb_size", help="DISCOVER model filler embedding size", type=int, default=None)
+discover_parser.add_argument("--discover_role_emb_size", help="DISCOVER model role embedding size", type=int, default=None)
+discover_parser.add_argument("--discover_role_scheme", help="role scheme for a DISCOVER model", type=str, default=None)
+discover_parser.add_argument("--discover_has_linear_layer", help="in a TPR encoder, whether there is a linear layer at the end", action='store_true')
+discover_parser.add_argument("--discover_init_filler_embedding", help="in a TPR encoder, initialize its filler embeddings with the target model's filler embeddings", action='store_true')
+discover_parser.add_argument("--discover_no_train_filler_embedding", help="in a TPR encoder, don't train its filler embeddings", action='store_true')
+discover_parser.add_argument("--discover_no_load_target", help="Don't load the target model when performing DISCOVER", action='store_true')
+discover_parser.add_argument("--discover_max_based_parsing", help="use a max-based parsing algorithm for a DISCOVER model (default is min-based)", action='store_true')
+discover_parser.add_argument("--discover_merge_left_parsing", help="use a merge-left-based parsing algorithm for a DISCOVER model (default is merge-right)", action='store_true')
+discover_parser.add_argument("--hidden_decoder_name", help="hidden state decoder model to load", type=str, default=None)
+discover_parser.add_argument("--size_to_compress", help="hidden state size to compress in the hidden state decoder", type=int, default=None)
+
+# DISCOVER ensemble argeuments
+discover_parser.add_argument("--llm_name", help="name of the LLM to be decomposed", type=str, default="gpt-oss")
+discover_parser.add_argument("--truncate_after_strs", help="truncate after these strings", type=str, default=None)
+discover_parser.add_argument("--truncate_before_strs", help="truncate before these strings", type=str, default=None)
+discover_parser.add_argument("--delete_strings", help="strings to delete when postprocessing the answer", type=str, default="")
+discover_parser.add_argument("--first_word", help="only use the first space-delimited token of the answer when computing accuracy", action='store_true')
+discover_parser.add_argument("--prefix_filename", help="file containing prefix string, from which to compute prefix length", type=str, default=None)
+discover_parser.add_argument("--intervention_type", help="intervention file suffix", type=str, default=None)
+discover_parser.add_argument("--intervention_foil", help="intervention file suffix for an alternative type of intervention", type=str, default=None)
+discover_parser.add_argument("--intervention_all_bidirectional", help="in a bidirectional role scheme, replace all involving this filler", action='store_true')
+discover_parser.add_argument("--intervention_self_bidirectional", help="in a bidirectional role scheme, replace only the self instance of this filler", action='store_true')
+discover_parser.add_argument("--intervention_other_bidirectional", help="in a bidirectional role scheme, replace only the other instances of this fillers", action='store_true')
+discover_parser.add_argument("--intervention_all_bidirectionalspec", help="in a bidirectional role scheme, replace all involving this filler/role pair", action='store_true')
+discover_parser.add_argument("--intervention_self_bidirectionalspec", help="in a bidirectional role scheme, replace only the self instance of this filler/role pair", action='store_true')
+discover_parser.add_argument("--intervention_other_bidirectionalspec", help="in a bidirectional role scheme, replace only the other instances of this filler/role pair", action='store_true')
+discover_parser.add_argument("--intervention_ignore_last", help="in a bidirectional role scheme, ignore the last component", action='store_true')
+discover_parser.add_argument("--intervention_no_check_tpr", help="don't check against the intended TPR", action='store_true')
+discover_parser.add_argument("--prefix_length", help="length of prefix to ignore", type=int, default=None)
+discover_parser.add_argument("--suffix_length", help="length of suffix to keep", type=int, default=None)
+discover_parser.add_argument("--prefix_str_length", help="length of prefix string to ignore", type=int, default=None)
+discover_parser.add_argument("--add_space", help="Add a space at the end of each input", action='store_true')
+discover_parser.add_argument("--valid_stop_early_index", help="number of validation batches to evaluate on", type=int, default=None)
+discover_parser.add_argument("--valid_acc_stop_early_index", help="number of validation batches to evaluate on for accuracy", type=int, default=None)
+
+# Analogy arguments
+discover_parser.add_argument("--analogy_suffixes", help="prefixes of analogy tests to run", type=str, default="")
+discover_parser.add_argument("--analogy_prefix", help="suffix of analogy files", type=str, default="analogies.")
+discover_parser.add_argument("--task", help="task performed by the decoder", type=str, default="copy")
+discover_parser.add_argument("--intervention_suffixes", help="prefixes of causal intervention tests to run", type=str, default="")
+discover_parser.add_argument("--intervention_prefix", help="suffix of causal intervention files", type=str, default="interventions.")
+discover_parser.add_argument("--discover_json_args", help="json file of saved DISCOVER model configuration to load", type=str, default=None)
+
+# Arguments defining the training
+discover_parser.add_argument("--patience", help="number of checkpoints without improvement to wait before early stopping", type=int, default=5)
+discover_parser.add_argument("--learning_rate_decay_patience", help="when the number of learning rate decays is greater than this, halt training", type=int, default=2)
+discover_parser.add_argument("--n_epochs", help="maximum number of training epochs", type=int, default=1000)
+discover_parser.add_argument("--eval_every", help="number of batches to train on in between each evaluation", type=int, default=300)
+discover_parser.add_argument("--eval_acc_every", help="number of batches to train on in between each evaluation of accuracy", type=int, default=None)
+discover_parser.add_argument("--training_size", help="number of training examples to use", type=int, default=None)
+discover_parser.add_argument("--dropout", help="dropout percentage", type=float, default=0.1)
+discover_parser.add_argument("--decoder_dropout", help="dropout percentage for the decoder, if different from the encoder", type=float, default=None)
+discover_parser.add_argument("--lr", help="learning rate", type=float, default=0.001)
+discover_parser.add_argument("--no_train", help="don't train, just evaluate", action='store_true')
+discover_parser.add_argument("--input_sos", help="add an SOS token at the start of the input sequence", action='store_true')
+discover_parser.add_argument("--no_eos", help="don't append the EOS token to target sequences", action='store_true')
+discover_parser.add_argument("--get_padding_loss", help="backpropagate loss for padding tokens", action='store_true')
+discover_parser.add_argument("--task_type", help="type of task (seq2seq, encoding, encoding_seq)", type=str, default=None)
+discover_parser.add_argument("--l21_lambda_fillers", help="L1 lambda for filler embeddings", type=float, default=None)
+discover_parser.add_argument("--l21_lambda_roles", help="L1 lambda for role embeddings", type=float, default=None)
+discover_parser.add_argument("--l21_lambda_fillers_ens", help="L1 lambda for filler embeddings (ensemble)", type=float, default=None)
+discover_parser.add_argument("--l21_lambda_roles_ens", help="L1 lambda for role embeddings (ensemble)", type=float, default=None)
+discover_parser.add_argument("--discover_dataset_prefix", help="dataset prefix", type=str, default="sentences")
+
+# Evaluations to run after doing DISCOVER
+discover_parser.add_argument("--eval_swapping", help="run evaluations of swapping accuracy and agreement", action='store_true')
+discover_parser.add_argument("--eval_nearest_neighbor_test", help="run nearest neighbor evaluation among just the test set elements", action='store_true')
+discover_parser.add_argument("--eval_nearest_neighbor_all", help="run nearest neighbor evaluation with all datasets (training, validation, and test) as candidates", action='store_true')
+discover_parser.add_argument("--eval_tvd", help="run total variation distance evaluation", action='store_true')
+discover_parser.add_argument("--eval_r_squared", help="run r squared evaluation", action='store_true')
+discover_parser.add_argument("--extra_evaluation_suffixes", help="extra evals to run", type=str, default=None)
+
+# Padding the data
+discover_parser.add_argument("--pad_src_left", help="pad source sequences on the left, instead of the right", action='store_true')
+discover_parser.add_argument("--pad_trg_left", help="pad target sequences on the left, instead of the right", action='store_true')
+discover_parser.add_argument("--uniform_src_length", help="sequence length for all source sequences", type=int, default=None)
+discover_parser.add_argument("--uniform_trg_length", help="sequence length for all target sequences", type=int, default=None)
+
+# Directories
+discover_parser.add_argument("--data_dir", help="data directory", type=str, default="data/")
+discover_parser.add_argument("--weight_dir", help="model weight directory", type=str, default="weights/")
+discover_parser.add_argument("--log_dir", help="directory for logs", type=str, default="logs/")
+
+# Data loading
+discover_parser.add_argument("--batch_size", help="batch size", type=int, default=32)
+discover_parser.add_argument("--batches_per_buffer", help="number of batches to store in the buffer", type=int, default=1000)
+discover_parser.add_argument("--shuffle", help="whether to shuffle batches within the buffer", action="store_true")
+discover_parser.add_argument("--noshuffle", help="whether not to shuffle batches within the buffer", action="store_true")
+discover_parser.add_argument("--stream", help="use streaming in loading the data", action="store_true")
+discover_parser.add_argument("--encode_on_the_fly", help="in running a DISCOVER model, generate the target encodings on the fly", action="store_true")
+discover_parser.add_argument("--standardization_filename", help="filename with stats to standardize the encodings that are loaded from a file", type=str, default=None)
+
+# Miscellaneous
+discover_parser.add_argument("--random_seed", help="random seed", type=int, default=None)
+discover_parser.add_argument("--dataset_prefix", help="prefix for the training, validation, and test dataset", type=str, default=None)
+discover_parser.add_argument("--dataset_prefix_to_encode", help="prefix for the datasets to generate encodings for (if different from dataset_prefix)", type=str, default=None)
+discover_parser.add_argument("--model_name", help="name for saving model weights", type=str, default=None)
+discover_parser.add_argument("--encoder_model_name", help="name for an encoder to load (when different from model_name)", type=str, default=None)
+discover_parser.add_argument("--decoder_model_name", help="name for a decoder to load (when different from model_name)", type=str, default=None)
+discover_parser.add_argument("--memoize", help="use memoization inside the role assigner", action="store_true")
+
+discover_parser.add_argument("--prnt", help="print some outputs for debugging", action="store_true")
+discover_parser.add_argument("--log_suffix", help="suffix for the log file", type=str, default="")
+
+

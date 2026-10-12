@@ -1,0 +1,132 @@
+
+
+1 S NP_RC V NP_RC Punct
+
+1 NP NP_small
+1 NP NP_small P Det NP_small
+
+1 NP_small N
+1 NP_small Adj N
+
+1 NP_RC Det NP
+1 NP_RC Det NP RC
+
+1 RC Comp Det NP V
+1 RC Comp V Det NP
+
+
+
+1 Punct .
+
+1 P near
+1 P next to
+1 P in front of
+1 P behind
+1 P across from
+
+1 Det the
+
+1 Comp who
+
+
+
+1 N senator
+1 N journalist
+1 N composer
+1 N director
+1 N scientist
+1 N philosopher
+1 N economist
+1 N runner
+1 N teacher
+1 N artist
+1 N librarian
+1 N programmer
+1 N barber
+1 N tourist
+1 N drummer
+1 N magician
+1 N captain
+1 N explorer
+1 N photographer
+1 N carpenter
+1 N technician
+1 N poet
+1 N pilot
+1 N referee
+1 N swimmer
+1 N lawyer
+1 N dancer
+1 N secretary
+1 N banker
+1 N engineer
+1 N accountant
+1 N governor
+1 N illustrator
+1 N intern
+1 N actor
+1 N author
+1 N reporter
+1 N cyclist
+1 N professor
+1 N novelist
+1 N tutor
+1 N coach
+1 N sailor
+1 N astronaut
+1 N architect
+1 N doctor
+1 N spy
+1 N student
+1 N ambassador
+1 N mayor
+1 N miner
+1 N manager
+1 N painter
+1 N writer
+1 N musician
+1 N nurse
+1 N inventor
+1 N baker
+1 N detective
+1 N translator
+1 N chef
+1 N president
+1 N editor
+1 N judge
+1 N politician
+1 N farmer
+1 N gardener
+1 N athlete
+
+
+1 V recommended
+1 V visited
+1 V helped
+1 V supported
+1 V surprised
+1 V hired
+1 V avoided
+1 V advised
+1 V stopped
+1 V introduced
+1 V mentioned
+1 V encouraged
+1 V thanked
+1 V recognized
+1 V admired
+
+1 Adj happy
+1 Adj famous
+1 Adj clever
+1 Adj tall
+1 Adj important
+1 Adj helpful
+1 Adj popular
+1 Adj careful
+1 Adj intelligent
+1 Adj polite
+
+
+
+

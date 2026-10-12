@@ -1,0 +1,229 @@
+
+
+1 S NP_RC_sg Vsg NP_RC Punct
+
+1 NP_sg NP_sg_small
+1 NP_sg NP_sg_small P Det NP_sg_small
+
+1 NP_sg_small Nsg
+1 NP_sg_small Adj Nsg
+
+1 NP_RC_sg Det NP_sg
+1 NP_RC_sg Det NP_sg RC_sg
+
+0.5 RC_sg Comp Det NP_sg Vsg
+0.5 RC_sg Comp Det NP_pl Vpl
+1 RC_sg Comp Vsg Det NP
+
+1 NP NP_sg
+1 NP NP_pl
+
+1 NP_RC NP_RC_sg
+1 NP_RC NP_RC_pl
+
+
+1 S NP_RC_pl Vpl NP_RC Punct
+
+1 NP_pl_small Npl
+1 NP_pl_small Adj Npl
+
+1 NP_pl NP_pl_small
+1 NP_pl NP_pl_small P Det NP_pl_small
+
+1 NP_RC_pl Det NP_pl
+1 NP_RC_pl Det NP_pl RC_pl
+
+0.5 RC_pl Comp Det NP_sg Vsg
+0.5 RC_pl Comp Det NP_pl Vpl
+1 RC_pl Comp Vpl Det NP
+
+
+1 P near
+1 P next to
+1 P in front of
+1 P behind
+1 P across from
+
+1 Punct .
+
+1 Det the
+
+1 Comp who
+
+1 Nsg senator
+1 Nsg journalist
+1 Nsg composer
+1 Nsg director
+1 Nsg scientist
+1 Nsg philosopher
+1 Nsg economist
+1 Nsg runner
+1 Nsg teacher
+1 Nsg artist
+1 Nsg librarian
+1 Nsg programmer
+1 Nsg tourist
+1 Nsg explorer
+1 Nsg photographer
+1 Nsg technician
+1 Nsg poet
+1 Nsg pilot
+1 Nsg swimmer
+1 Nsg lawyer
+1 Nsg dancer
+1 Nsg banker
+1 Nsg engineer
+1 Nsg accountant
+1 Nsg governor
+1 Nsg intern
+1 Nsg actor
+1 Nsg author
+1 Nsg reporter
+1 Nsg cyclist
+1 Nsg professor
+1 Nsg tutor
+1 Nsg coach
+1 Nsg sailor
+1 Nsg astronaut
+1 Nsg architect
+1 Nsg doctor
+1 Nsg spy
+1 Nsg student
+1 Nsg ambassador
+1 Nsg miner
+1 Nsg manager
+1 Nsg painter
+1 Nsg writer
+1 Nsg musician
+1 Nsg nurse
+1 Nsg detective
+1 Nsg translator
+1 Nsg chef
+1 Nsg president
+1 Nsg editor
+1 Nsg judge
+1 Nsg politician
+1 Nsg farmer
+1 Nsg gardener
+1 Nsg athlete
+
+1 Npl senators
+1 Npl journalists
+1 Npl composers
+1 Npl directors
+1 Npl scientists
+1 Npl philosophers
+1 Npl economists
+1 Npl runners
+1 Npl teachers
+1 Npl artists
+1 Npl librarians
+1 Npl programmers
+1 Npl tourists
+1 Npl explorers
+1 Npl photographers
+1 Npl technicians
+1 Npl poets
+1 Npl pilots
+1 Npl swimmers
+1 Npl lawyers
+1 Npl dancers
+1 Npl bankers
+1 Npl engineers
+1 Npl accountants
+1 Npl governors
+1 Npl interns
+1 Npl actors
+1 Npl authors
+1 Npl reporters
+1 Npl cyclists
+1 Npl professors
+1 Npl tutors
+1 Npl coaches
+1 Npl sailors
+1 Npl astronauts
+1 Npl architects
+1 Npl doctors
+1 Npl spies
+1 Npl students
+1 Npl ambassadors
+1 Npl miners
+1 Npl managers
+1 Npl painters
+1 Npl writers
+1 Npl musicians
+1 Npl nurses
+1 Npl detectives
+1 Npl translators
+1 Npl chefs
+1 Npl presidents
+1 Npl editors
+1 Npl judges
+1 Npl politicians
+1 Npl farmers
+1 Npl gardeners
+1 Npl athletes
+
+
+
+1 Vsg recommends
+1 Vsg visits
+1 Vsg helps
+1 Vsg supports
+1 Vsg surprises
+1 Vsg hires
+1 Vsg avoids
+1 Vsg advises
+1 Vsg stops
+1 Vsg introduces
+1 Vsg mentions
+1 Vsg encourages
+1 Vsg thanks
+1 Vsg recognizes
+
+
+1 V recommend
+1 V visit
+1 V help
+1 V support
+1 V surprise
+1 V hire
+1 V avoid
+1 V advise
+1 V stop
+1 V introduce
+1 V mention
+1 V encourage
+1 V thank
+1 V recognize
+
+
+1 Vpl recommend
+1 Vpl visit
+1 Vpl help
+1 Vpl support
+1 Vpl surprise
+1 Vpl hire
+1 Vpl avoid
+1 Vpl advise
+1 Vpl stop
+1 Vpl introduce
+1 Vpl mention
+1 Vpl encourage
+1 Vpl thank
+1 Vpl recognize
+
+
+1 Adj happy
+1 Adj famous
+1 Adj clever
+1 Adj tall
+1 Adj important
+1 Adj helpful
+1 Adj popular
+1 Adj careful
+1 Adj intelligent
+1 Adj polite
+
+
+
