@@ -50,7 +50,14 @@ while len(sentences) < n_interventions:
 
     if sentence not in sentences_dict:
         sentences_dict[sentence] = 1
-        new_sentence = sentence.replace(word_to_replace, new_word)
+        word_list = sentence.replace(".", " .").replace("?", " ?").replace(",", " ,").split()
+        new_words = []
+        for word in word_list:
+            if word == word_to_replace:
+                new_words.append(new_word)
+            else:
+                new_words.append(word)
+        new_sentence = " ".join(new_words).replace(" .", ".").replace(" ?", "?").replace(" ,", ",")
         sentences.append([sentence, sentence, invert(sentence), new_sentence, invert(new_sentence), "(DUMMY," + word_to_replace + ")", "(DUMMY," + new_word + ")"])
 
         if len(sentences) % 10000 == 0:
