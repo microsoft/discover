@@ -51,6 +51,7 @@ The other functionality of this codebase is for performing causal interventions 
 1. Copy in other code that will be necessary
 ```
 git clone https://github.com/tommccoy1/discover.git
+cp interventions_ensemble.py discover/
 cd discover/
 ```
 
