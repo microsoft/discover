@@ -4,6 +4,10 @@
 DISsecting COmpositionality in VEctor Representations
 
 
+## Notes about the repository
+
+Before using or building upon this code, please take note of the [https://opensource.microsoft.com/codeofconduct/](Microsoft Open Source Code of Conduct).
+
 
 ## Requirements
 0. Create a python venv to run code in:

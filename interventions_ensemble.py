@@ -1,5 +1,9 @@
 
 
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
+
 import os
 os.environ['HF_HOME'] = '.transformers/'
 

@@ -1,5 +1,8 @@
 
 
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import argparse
 
 discover_parser = argparse.ArgumentParser(add_help=False)
