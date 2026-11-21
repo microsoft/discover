@@ -72,7 +72,13 @@ python interventions_ensemble.py --json_args passive/logs/tpe_ensemble_gpt-oss_p
 
 # Trademark notice
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's [Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's [Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
 
+
+# Security reporting guidelines
+
+Microsoft takes the security of our software products and services seriously, which includes all source code repositories in our GitHub organizations.
+
+Please do not report security vulnerabilities through public GitHub issues. Instead, let us know by sending an email to [secure@microsoft.com](mailto:secure@microsoft.com).
 
  
