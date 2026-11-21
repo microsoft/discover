@@ -1,5 +1,6 @@
 MIT License
 
+DISCOVER: DISsecting COmpositionality in VEctor Representations
 Copyright (c) 2026 tommccoy
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

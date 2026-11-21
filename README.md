@@ -6,7 +6,7 @@ DISsecting COmpositionality in VEctor Representations
 
 ## Notes about the repository
 
-Before using or building upon this code, please take note of the [https://opensource.microsoft.com/codeofconduct/](Microsoft Open Source Code of Conduct).
+Before using or building upon this code, please take note of the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 
 
 ## Requirements
@@ -69,6 +69,10 @@ python decompose_ensemble.py --llm_name gpt-oss --discover_role_scheme passive_b
 python interventions_ensemble.py --json_args passive/logs/tpe_ensemble_gpt-oss_passive_bi_0.decomposition_args.json --random_seed 12345 --intervention_type content --intervention_all_bidirectional --log_suffix _0
 ```
 
+
+# Trademark notice
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's [Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.
 
 
  
